@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1028494516838",
+    "project_id": "rebootingrebels-99b97",
+    "storage_bucket": "rebootingrebels-99b97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1028494516838:android:7f78e3c4cb9b512c57c3a7",
+        "android_client_info": {
+          "package_name": "com.rebootingrebelssem2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAymaHUx-Uo0am0t2Vh9BOR9yfXvRHRPuI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1028494516838:android:0e778de7a304285557c3a7",
+        "android_client_info": {
+          "package_name": "com.rebootingrebelssemtwo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAymaHUx-Uo0am0t2Vh9BOR9yfXvRHRPuI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
