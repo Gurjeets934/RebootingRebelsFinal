@@ -16,20 +16,13 @@ As we have initialized the project for Android only, so for testing and running 
 
 After running metro, open "Android Studio" and open the "android" folder from the "RebootingRebelsFinal" Folder and then launch the application after 'gradle sync'
 
-### For iOS
-
-After running metro, open "Xcode" and launch the application in your end.., but in our case, we have not initiliazed with iOS, so, you may need to do some configurations..
 
 ### Executing the Application
 
-If everything is set up _correctly_, you should see application running in your Android Emulator or iOS Simulator shortly provided you have set up your emulator/simulator correctly.
+If everything is set up _correctly_, you should see application running in your Android Emulator shortly provided you have set up your emulator/simulator correctly.
 
 ### About the App
 
-This application is our previous semester project for React-Native Course, and we have built the Firebase Integration Functionality according to the requirements..
+This application is our project for Cross Development-II Course, and we have built the Firebase Integration Functionality, User Profile, etc according to the requirements..
 
-There are few changes like, we are not using "Tabs", instead we are using "Navigation", but we are using services like "API" and "Helper" this time which is an addition..
-
-Moreover, we have learnt the new concepts for "React-Native" and able to use in the developing environment, plus we have also learned how to integrate "Firebase" with it using right configuration.
-
-Thankyou! We all team of four members who enjoy to code and helpful to the community by commiting :) :) :)
+Thankyou! We all team of four members who enjoy to code and helpful to the community by commiting :) :) :) :)
