@@ -8,9 +8,9 @@
 
 First, you need to create the directory by downloading or pulling all the files, then just "cd Project Folder" and then run with the command "npx react-native start"... this will start the metro server.. 
 
-## Step 2: Starting the app, via ios/Android
+## Step 2: Starting the app, via Android only
 
-You need to either choose Android or iOS for running the project/application, but in our case it is "Android" that we built in the application for..
+As we have initialized the project for Android only, so for testing and running it in your platform (either it is Windows or Mac) use Android Studio and then run the android folder from the project directory.  
 
 ### For Android
 
