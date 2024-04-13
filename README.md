@@ -14,7 +14,7 @@ As we have initialized the project for Android only, so for testing and running 
 
 ### For Android
 
-After running metro, open "Android Studio" and open the "android" project in the "RebootingRebelsSem2" Folder and then launch the application after 'gradle sync'
+After running metro, open "Android Studio" and open the "android" folder from the "RebootingRebelsFinal" Folder and then launch the application after 'gradle sync'
 
 ### For iOS
 
