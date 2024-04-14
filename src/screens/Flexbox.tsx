@@ -75,7 +75,7 @@ const FlexboxMain = () => {
     style= {styles.imageStyle}/>
     </View>
 
-    <Text>Our Universe! all planets being captured </Text>
+    <Text style={styles.textStyle}>Our Universe! all planets being captured </Text>
 
     </View>
     )
@@ -83,10 +83,11 @@ const FlexboxMain = () => {
 
 const styles = StyleSheet.create({
     textStyle:{
-        color: "#3949AB",
+        color: "#e6e1c5",
         textAlign: 'center',
         marginBottom:50,
         marginTop: 30,
+        fontSize: 20,
     },
     wrapper:{
         flex:1,
@@ -95,9 +96,10 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         alignItems: 'center',
         alignContent: 'flex-start',
-        backgroundColor: 'white',
+        backgroundColor: '#395c6b',
         flexWrap:'wrap',
-        paddingTop: 60
+        paddingTop: 60,
+        height: '100%'
     },
     box1:{
         backgroundColor: 'red',
@@ -126,7 +128,7 @@ const Flexbox =() =>{
     return (
            
             <Stack.Navigator initialRouteName="Gallery" screenOptions={{
-                title:"Gallery", headerShown: false
+                title:"Gallery", headerShown: true
             }} >
             <Stack.Screen name="Flexbox Main" component={FlexboxMain}></Stack.Screen>
         

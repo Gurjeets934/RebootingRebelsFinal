@@ -3,6 +3,7 @@ import React from "react";
 import { View, Text, StyleSheet, Image, Button, TouchableOpacity, Alert } from "react-native";
 import Login from "./Login";
 import Sign from "./Sign";
+// import { useAppData } from "../providers/AppState";
 
 
 const Stack = createNativeStackNavigator();
@@ -13,34 +14,25 @@ interface HomeScreenMainProps {
 
 const HomeScreenMain: React.FC<HomeScreenMainProps> = ({ navigation }) => {
     const {wrapper, textStyle, clickMeStyles} = styles
+  
 return (
-
+      
     <View style = {wrapper}>    
         
-    <Text style = {textStyle}>Rebooting Rebels </Text>
+        <Text style={textStyle}>Rebooting Rebels </Text>
+            <Image 
+                source={require('./../../assets/home_page_react.jpg')}
+                style={styles.imageStyle}
+            />
+            <Text style={styles.textStyleTwo}>Rebooting Rebels Home Site </Text>
+            
+            <TouchableOpacity onPress={() => navigation.push('Login')}>
+                <Text style={clickMeStyles}>Already User? Login</Text>
+            </TouchableOpacity>
    
-    <Image 
-    source = {
-        require('./../../assets/home_page.jpg')
-    } style= {styles.imageStyle}/>
-
-<Text style = {clickMeStyles}>If you are interesting in universe and its visuals, our team will show the marvelous universe with never ending formation in it </Text>
-
-    <Text style = {clickMeStyles} 
-    //Function to Navigate and Redirect to another Page!
-    onPress= {()=>{
-        navigation.push('Login');
-
-    }}
-    >Already User? Login</Text>
-   
-   <Text style = {clickMeStyles} 
-  //Function to Navigate and Redirect to another Page!
-    onPress= {()=>{
-        navigation.push('Sign');
-
-    }}
-    >New User? Register</Text>
+            <TouchableOpacity onPress={() => navigation.push('Sign')}>
+                <Text style={styles.paraStyles}>New User? Register</Text>
+            </TouchableOpacity>
         
         
     </View>
@@ -52,35 +44,46 @@ return (
 const styles = StyleSheet.create(
     {
         wrapper:{
-            backgroundColor: "#f1f1f1",
+            backgroundColor: "#395c6b",
             padding: 10,
             alignItems: 'center',
+            height: '100%'
         },
         textStyle:{
-            color: "#3949AB",
+            color: "#e6e1c5",
             textAlign: 'center',
             marginBottom:50,
             marginTop: 80,
-            
+            fontSize: 30,
             
         },
 
+       
      
 
         clickMeStyles:{
             margin: 10,
             padding: 10,
-            backgroundColor: "purple",
-            color: "white",
+            backgroundColor: "#131ada",
+            color: "#f2e5d7",
         },
+    
+
 
         paraStyles:{
             margin: 10,
             padding: 10,
-            backgroundColor: "purple",
-            color: "white",
+            backgroundColor: "yellow",
+            color: "#000000",
         },
-
+        textStyleTwo:{
+            color: "#e6e1c5",
+            textAlign: 'center',
+            marginBottom:50,
+            marginTop: 80,
+            fontSize: 20,
+            
+        },
        imageStyle:{
         width:300,
         height:300,
@@ -92,7 +95,7 @@ const styles = StyleSheet.create(
 const HomeScreen =() =>{
     return (
         <Stack.Navigator initialRouteName="HomeScreen">
-            <Stack.Screen name="HomeScreen" component = {HomeScreenMain}
+            <Stack.Screen name="HomeScreenMain" component = {HomeScreenMain}
             options={{
                  headerShown:false
                 }}

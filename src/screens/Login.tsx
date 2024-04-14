@@ -1,11 +1,12 @@
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React, { useState }  from "react";
+import React, { useContext, useState }  from "react";
 import { Alert, View, StyleSheet, Text, SafeAreaView, TouchableOpacity, TextInput } from "react-native";
 
 import WelcomePage from "./WelcomePage";
 
 import { fetchUser, signInAsync } from "../../api.service";
+import { AppStateContext } from "../providers/AppState";
 
 
 
@@ -27,6 +28,7 @@ const LoginMain: React.FC<LoginMainProps> = ({ navigation }) => {
     const [username, onChangeText] = useState("");
     const [password, onChangePassword] = useState("");
     const [status, setStatus] = useState("");
+    const {activeUser} = useContext(AppStateContext);
 
     async function doLogin(){
     if(username.length<=0)
@@ -87,10 +89,14 @@ async function loadUserProfile(userID: string){
         <View style={styles.topBox}>
            
         <View style={styles.inputBoxWrapper}>
-        <Text>Please enter your login credentials </Text>
+            
+        {/* <Text>Welcome{activeUser?.firstName ? `, ${activeUser.firstName}` : ''}</Text> */}
+
+     
+        <Text style={styles.label}>Please enter your login credentials </Text> 
         </View>
 
-                    <TextInput
+    <TextInput
         style={styles.input}
         onChangeText={onChangeText}
         value={username}
@@ -105,7 +111,7 @@ async function loadUserProfile(userID: string){
         value={password}
         placeholder="Enter your password"
       />
-        <Text>{status}</Text>
+        <Text style={styles.statusStyle}>{status}</Text>
 
             
         </View>
@@ -124,12 +130,26 @@ async function loadUserProfile(userID: string){
 const styles = StyleSheet.create({
     wrapper:{
         flex:1,
+        backgroundColor: "#395c6b",
+
+    
     },
+
+    label:{
+        color: '#e6e1c5',
+        fontSize: 23,
+    },
+
+    statusStyle:{
+        color: '#f1f1f1',
+        fontSize: 16,
+    },
+
     topBox:{
         flex:3,
         justifyContent: 'space-evenly',
         alignItems:'center',
-        backgroundColor:'green'
+        backgroundColor:'395c6b'
     },
     bottomBox:{
         flexBasis:70, 
@@ -137,7 +157,7 @@ const styles = StyleSheet.create({
         padding:10
     },
     buttonStyle:{
-        backgroundColor: 'green',
+        backgroundColor: '#e6e1c5',
         color: '#000',
         padding: 10,
         alignItems: 'center',
@@ -149,6 +169,9 @@ const styles = StyleSheet.create({
           borderWidth: 1,
           padding: 10,
           width: "80%",
+          color: '#13141d',
+          fontSize: 20,
+          backgroundColor: "#f1f1f1"
         },
     inputBoxWrapper: {
             width: '100%',

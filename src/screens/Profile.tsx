@@ -1,7 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, StyleSheet, Image, Button, TouchableOpacity, Alert } from "react-native";
-
+import { AppStateContext } from "../providers/AppState";
+import { text } from "stream/consumers";
+import HomeScreen from "./HomeScreen";
 
 
 
@@ -13,16 +15,21 @@ interface ProfilePageMainProps {
   }
   
   const ProfilePageMain: React.FC<ProfilePageMainProps> = ({ navigation }) => {
-    const {wrapper, textStyle, clickMeStyles} = styles
-return (
+     const {wrapper, textStyle, clickMeStyles} = styles
+     const {activeUser} = useContext(AppStateContext);
+
+     return (
 
     <View style = {wrapper}>
     <Text style = {textStyle}
-    > YOUR PROFILE </Text>
-    
+    > Your Profile </Text>
+      <Text style={styles.infoStyle}>Full Name: {activeUser?.firstName} {activeUser?.lastName} </Text>
+      <Text style={styles.infoStyle}>Gender: {activeUser?.gender}</Text>
+      <Text style={styles.infoStyle}>Address: {activeUser?.address}</Text>
+    <Text style={styles.infoStyle}>Avatar:</Text>
     <Image 
     source = {
-        require('./../../assets/about.jpg')
+        {uri: 'https://gravatar.com/avatar/872bdd6da4f5ed4c6d74aa69a8c429de?s=400&d=robohash&r=x'}
     } style= {styles.imageStyle}/>
     {/* <Text style = {clickMeStyles} 
     //Function to Navigate and Redirect to another Page!
@@ -34,8 +41,25 @@ return (
     <Text style = {clickMeStyles} 
    //Function to Navigate and Redirect to another Page!
     onPress= {()=>{
-        navigation.goBack()
+        Alert.alert("Attention","Are you sure you want to log out?",[
+         {   text: 'Yes',
+         onPress: () => { console.log('User accepted');
+         navigation.reset({
+            index: 0,
+            routes: [{ name: "HomeScreen"}]
+         });
+         },
+        },
+        {
+            text: 'No',
+            onPress: () => {
+                console.log('User rejected');
+            }
+        },
+        ]);   
+        // navigation.goBack()
         // navigation.push('AboutUs');
+
     }}
     >Log out</Text>
 
@@ -48,26 +72,37 @@ return (
 const styles = StyleSheet.create(
     {
         wrapper:{
-            backgroundColor: "#f1f1f1",
+            backgroundColor: "#395c6b",
             padding: 10,
-            alignItems: 'center'
+            alignItems: 'center',
+            height: '100%'
         },
         textStyle:{
-            color: "#3949AB",
+            color: "#e6e1c5",
             textAlign: 'center',
-            marginBottom:50,
+            fontSize: 24,  
+            marginBottom:40,
             marginTop: 80,
+            fontWeight: 'bold',
+            fontStyle: 'italic'
+        },
+        infoStyle:{
+            color: "#f1f1f1",
+            fontSize: 20,
+            marginBottom:20,
         },
         clickMeStyles:{
             margin: 10,
             padding: 10,
-            backgroundColor: "blue",
-            color: "white",
+            backgroundColor: "#e6e1c5",
+            color: "#000000",
         },
        imageStyle:{
         width:300,
         height:300,
-        marginBottom:30
+        marginBottom:30,
+        borderRadius: 80,
+        backgroundColor: "#E6E7EE",
        }
     }
 )
@@ -75,11 +110,13 @@ const styles = StyleSheet.create(
 const ProfilePage =() =>{
     return (
         <Stack.Navigator initialRouteName="CrossNativeFirst">
-            <Stack.Screen name="CrossNativeFirst" component = {ProfilePageMain} options={{
-                headerShown:false
+            <Stack.Screen name="See your Profile" component = {ProfilePageMain} options={{
+                headerShown:true
             }}></Stack.Screen>
        
-
+       <Stack.Screen name="HomeScreen" component = {HomeScreen} options={{
+                headerShown:false
+            }}></Stack.Screen>
          
 
         </Stack.Navigator>

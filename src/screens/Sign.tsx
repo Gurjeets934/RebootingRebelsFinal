@@ -93,35 +93,35 @@ const SignMain: React.FC<SignMainProps> = ({ navigation }) => {
         <SafeAreaView style={styles.wrapper}>   
         <View style={styles.topBox}>
         <View style={styles.inputBoxWrapper}>
-        <Text>Email </Text>
+        <Text style={styles.textStyle}>Email </Text>
         </View>
 
         <TextInput
         style={styles.input}
         onChangeText={onChangeText}
         value={username}
-        placeholder="Username"
+        placeholder="Enter your email"
         autoCorrect={false}
         keyboardType="email-address"
         autoCapitalize="none"
       />
 
-        <Text>Password </Text>
+        <Text style={styles.textStyle}>Password </Text>
 
             <TextInput
         style={styles.input}
         onChangeText={onChangePassword}
         value={password}
-        placeholder="Password"
+        placeholder="Enter your password"
       />
 
-     <Text>Confirm Password </Text>
+     <Text style={styles.textStyle}>Confirm Password </Text>
 
       <TextInput
         style={styles.input}
         onChangeText={onChangePasswordConfirm}
         value={passwordConfirm}
-        placeholder="Confirm Password"
+        placeholder="Enter your password"
       />
         <Text>{status}</Text>
 
@@ -134,7 +134,7 @@ const SignMain: React.FC<SignMainProps> = ({ navigation }) => {
         onPress={()=>{
             doSignup();
         }}>
-            <Text>Login Here</Text>
+            <Text>Register Here</Text>
             </TouchableOpacity>
 
          <TouchableOpacity
@@ -152,6 +152,8 @@ const SignMain: React.FC<SignMainProps> = ({ navigation }) => {
 const styles = StyleSheet.create({
     wrapper:{
         flex:1,
+        backgroundColor: '#395c6b',
+        height: '100%'
     },
     topBox:{
         flex:3,
@@ -165,11 +167,12 @@ const styles = StyleSheet.create({
         padding:10
     },
     buttonStyle:{
-        backgroundColor: 'skyblue',
+        backgroundColor: '#e6e1c5',
         color: '#000',
         padding: 10,
         alignItems: 'center',
-        marginBottom: 2
+        marginBottom: 2,
+        fontSize: 20,
     },
     inputBoxWrapper: {
         width: '100%',
@@ -181,9 +184,19 @@ const styles = StyleSheet.create({
         margin: 12,
         borderWidth: 1,
         padding: 10,
-        width: "100%",
+        width: "130%",
+        color: '#13141d',
+        fontSize: 20,
+        backgroundColor: "#f1f1f1"
         
-      }
+      },
+      textStyle:{
+        color: "#e6e1c5",
+        marginBottom:20,
+        marginTop: 20,
+        fontSize: 25,
+        
+    },
 })
 
 const Sign =() =>{

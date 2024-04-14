@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
+    backgroundColor: '#395c6b',
   },
   logo: {
     width: 150,
@@ -40,19 +41,22 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: '#e6e1c5',
   },
   description: {
     textAlign: 'center',
     marginBottom: 20,
+    color: '#f1f1f1'
   },
   contactButton: {
-    backgroundColor: '#3498db',
+    backgroundColor: '#e6e1c5',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
+   
   },
   contactButtonText: {
-    color: '#fff',
+    color: '#000',
     fontSize: 16,
     fontWeight: 'bold',
   },
@@ -68,7 +72,7 @@ const AboutUs =() =>{
     return (
         <Stack.Navigator>
             <Stack.Screen name="About" component = {AboutUsMain} options={{
-             headerShown:false
+             headerShown:true
             }}></Stack.Screen>
           
         </Stack.Navigator>

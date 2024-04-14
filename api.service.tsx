@@ -30,9 +30,9 @@ export function signInAsync(username: string, password: string){
    return auth().signInWithEmailAndPassword(username, password);
    }
 
-export async function fetchUser(userId: string): Promise<User | undefined >
+export async function fetchUser(userId: string): Promise<User | undefined>
 {
    await sleep(2000);
    const avatarUrl = "https://gravatar.com/avatar/872bdd6da4f5ed4c6d74aa69a8c429de?s=400&d=robohash&r=x";
-   return {id: userId, firstName: "Gurjeet", lastName: "Singh", avatarUrl: avatarUrl};
+   return {id: userId, firstName: "Gurjeet Singh", lastName: "Singh", avatarUrl: avatarUrl};
 }

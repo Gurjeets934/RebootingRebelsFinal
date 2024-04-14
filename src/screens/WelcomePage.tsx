@@ -1,10 +1,11 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, StyleSheet, Image, Button, TouchableOpacity, Alert } from "react-native";
 
 import Flexbox from './Flexbox';
 import AboutUs from "./AboutUs";
 import ProfilePage from "./Profile";
+import { AppStateContext } from "../providers/AppState";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,15 +16,17 @@ interface WelcomePageMainProps {
   
   const WelcomePageMain: React.FC<WelcomePageMainProps> = ({ navigation }) => {
     const {wrapper, textStyle, clickMeStyles} = styles
+    const {activeUser} = useContext(AppStateContext);
 return (
 
     <View style = {wrapper}>
+        
     <Text style = {textStyle}
-    >Welcome our Planet is: CrossNative do you REACT 😲</Text>
+    >Welcome, {activeUser?.firstName} {activeUser?.lastName} </Text>
     
     <Image 
     source = {
-        require('./../../assets/welcome.jpeg')
+        require('./../../assets/welcome_to_the_app.jpeg')
     } style= {styles.imageStyle}/>
     <Text style = {clickMeStyles} 
     //Function to Navigate and Redirect to another Page!
@@ -31,14 +34,22 @@ return (
         navigation.push('Profile');
    
     }}
-    >See! Our Planets Here!</Text>
+    >See your profile here!</Text>
     <Text style = {clickMeStyles} 
    //Function to Navigate and Redirect to another Page!
     onPress= {()=>{
-        navigation.goBack()
+        navigation.push('Flexbox')
         // navigation.push('AboutUs');
     }}
-    >Log out</Text>
+    >See our Gallery here</Text>
+
+     <Text style = {clickMeStyles} 
+   //Function to Navigate and Redirect to another Page!
+    onPress= {()=>{
+        navigation.push('AboutUs')
+        // navigation.push('AboutUs');
+    }}
+    >Want to know? About Us</Text>
 
     </View>
 )
@@ -49,21 +60,23 @@ return (
 const styles = StyleSheet.create(
     {
         wrapper:{
-            backgroundColor: "#f1f1f1",
+            backgroundColor: "#395c6b",
             padding: 10,
-            alignItems: 'center'
+            alignItems: 'center',
+            height: '100%'
         },
         textStyle:{
-            color: "#3949AB",
+            color: "#e6e1c5",
             textAlign: 'center',
             marginBottom:50,
             marginTop: 80,
+            fontSize: 23,
         },
         clickMeStyles:{
             margin: 10,
             padding: 10,
-            backgroundColor: "blue",
-            color: "white",
+            backgroundColor: "#e6e1c5",
+            color: "#000000",
         },
        imageStyle:{
         width:300,
@@ -81,6 +94,10 @@ const WelcomePage =() =>{
             }}></Stack.Screen>
        
             <Stack.Screen name="Profile" component={ProfilePage} options={{
+            title:"My Profile", headerShown:false
+            }}></Stack.Screen>
+
+            <Stack.Screen name="Flexbox" component={Flexbox} options={{
             title:"Gallery", headerShown:false
             }}></Stack.Screen>
 
